@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author negis,shimpim,rahul
  */
 public abstract class Organization {
-
+    
     private String name;
     private WorkQueue workQueue;
     private EmployeeDirectory employeeDirectory;
@@ -24,7 +24,7 @@ public abstract class Organization {
     private static int counter=0;
     
     public enum Type{
-        Admin("Admin Organization"), Doctor("Doctor Organization"), Lab("Lab Organization");
+        PharmacyManager("Pharmacy Manager"),  DeliveryPartnerManager("Delivery Partner Manager Organization"),DeliveryMan("Delivery Man"),FinancialPartnerManager("Financial Partner Manager Organization"),FinanceManager("Finance Manager"),PharmacyPurchaseManager("Pharmacy Purchase Manager"),PharmacyFinancialManager("Pharmacy Financial Manager"),PharmaManager("Pharmacy Manager Organization");
         private String value;
         private Type(String value) {
             this.value = value;
@@ -32,8 +32,9 @@ public abstract class Organization {
         public String getValue() {
             return value;
         }
+    
     }
-
+    
     public Organization(String name) {
         this.name = name;
         workQueue = new WorkQueue();
@@ -77,6 +78,4 @@ public abstract class Organization {
     public String toString() {
         return name;
     }
-    
-    
 }

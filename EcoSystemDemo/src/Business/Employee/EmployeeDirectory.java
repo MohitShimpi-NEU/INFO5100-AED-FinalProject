@@ -8,10 +8,9 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author negis,shimpim,rahul
  */
 public class EmployeeDirectory {
-    
     private ArrayList<Employee> employeeList;
 
     public EmployeeDirectory() {

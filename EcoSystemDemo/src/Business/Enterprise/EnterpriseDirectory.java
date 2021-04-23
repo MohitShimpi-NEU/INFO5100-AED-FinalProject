@@ -5,12 +5,11 @@
  */
 package Business.Enterprise;
 
-import Business.Organization.OrganizationDirectory;
 import java.util.ArrayList;
 
 /**
  *
- * @author MyPC1
+ * @author negis,shimpim,rahul
  */
 public class EnterpriseDirectory {
     private ArrayList<Enterprise> enterpriseList;
@@ -31,10 +30,19 @@ public class EnterpriseDirectory {
     //Create enterprise
     public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseType type){
         Enterprise enterprise=null;
-        if(type==Enterprise.EnterpriseType.Hospital){
-            enterprise=new HospitalEnterprise(name);
+        if(type==Enterprise.EnterpriseType.Pharmacy){
+            enterprise=new PharmacyEnterprice(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseType.Finance){
+            enterprise=new FinanceEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseType.DeliveryPartner){
+            enterprise=new DeliveryPartnerEnterprise(name);
             enterpriseList.add(enterprise);
         }
         return enterprise;
     }
 }
+
