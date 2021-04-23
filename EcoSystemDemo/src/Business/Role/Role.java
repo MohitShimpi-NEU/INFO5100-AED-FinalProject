@@ -4,9 +4,9 @@
  */
 package Business.Role;
 
-import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -15,11 +15,9 @@ import javax.swing.JPanel;
  * @author raunak
  */
 public abstract class Role {
-    
     public enum RoleType{
-        Admin("Admin"),
-        Doctor("Doctor"),
-        LabAssistant("Lab Assistant");
+        
+        Cook("Cook"), DManager("DeliveryManager"),Delivery("Delivery"),PManager("PlatformManager"),PFinancial("PlatformFinancial"),Purchase("Purchase"),RFinancial("Restaurant"),RManager("RestaurantManager");
         
         private String value;
         private RoleType(String value){
