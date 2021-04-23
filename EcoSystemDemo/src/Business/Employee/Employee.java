@@ -6,10 +6,9 @@ package Business.Employee;
 
 /**
  *
- * @author raunak
+ * @author negis,shimpim,rahul
  */
 public class Employee {
-    
     private String name;
     private int id;
     private static int count = 1;
@@ -36,6 +35,4 @@ public class Employee {
     public String toString() {
         return name;
     }
-    
-    
 }
