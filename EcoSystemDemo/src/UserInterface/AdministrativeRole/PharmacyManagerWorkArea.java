@@ -455,7 +455,7 @@ public class PharmacyManagerWorkArea extends javax.swing.JPanel {
         }
             PurchaseRequest  vs = (PurchaseRequest)purchasereq.getValueAt(selectedrow,2);
             
-            vs.setMedicineRequest("Declined By Pharmacy Manager");
+            vs.setMedicineRequest("Declined By Pharmacy Administrator");
             
             JOptionPane.showMessageDialog(null, "This purchase request has been declined","Success",JOptionPane.PLAIN_MESSAGE);
             poppurchasetab();

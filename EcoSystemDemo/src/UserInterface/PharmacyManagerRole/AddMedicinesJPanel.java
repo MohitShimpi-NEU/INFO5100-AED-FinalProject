@@ -168,8 +168,8 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
 
     private void btnComfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComfirmActionPerformed
         // TODO add your handling code here:
-        boolean exist=false;
-        if(txtName.getText().equals("")|| txtPrice.getText().equals("")){
+   
+        if(txtName.getText().isEmpty()|| txtPrice.getText().isEmpty()){
                  JOptionPane.showMessageDialog(null, "Fields empty!","Warning",JOptionPane.WARNING_MESSAGE);
                  return;
             }
@@ -180,21 +180,19 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
             return;
         }
         
-            for(Medicine dish:menu.getMedicineList()){
-                if(dish.getMedicineName().equals(txtName.getText())){
+            for(Medicine medicine:menu.getMedicineList()){
+                if(medicine.getMedicineName().equals(txtName.getText())){
                     JOptionPane.showMessageDialog(null, "Medicine already exist!","Warning",JOptionPane.WARNING_MESSAGE);
-                    exist=true;
-                    break;
+                    return;
                 }
             }
-            if(exist==false)
-                {
-                Medicine dish = menu.updateMenu();
-                dish.setMedicineName(txtName.getText());
-                dish.setPrice(Float.parseFloat(txtPrice.getText()));
+            
+                Medicine medicine = menu.updateMenu();
+                medicine.setMedicineName(txtName.getText());
+                medicine.setPrice(Float.parseFloat(txtPrice.getText()));
 
     		DB4OUtil.getInstance().storeSystem(business);
-                JOptionPane.showMessageDialog(null, "Request has been submitted successfully","Success",JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Medicine added successfully","Success",JOptionPane.PLAIN_MESSAGE);
                 txtName.setText("");
                 txtPrice.setText("");
                 
@@ -209,7 +207,7 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
             }
         }
                 
-                }
+                
             
              DB4OUtil.getInstance().storeSystem(business);
     }//GEN-LAST:event_btnComfirmActionPerformed

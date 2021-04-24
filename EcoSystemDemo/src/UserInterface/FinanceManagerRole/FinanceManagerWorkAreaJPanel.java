@@ -54,8 +54,6 @@ public class FinanceManagerWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtBalance = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         moneyOrderJTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -64,15 +62,6 @@ public class FinanceManagerWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel1.setText("Account Balance:");
-
-        txtBalance.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
-        txtBalance.setForeground(new java.awt.Color(0, 51, 102));
-        txtBalance.setEnabled(false);
 
         moneyOrderJTable.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         moneyOrderJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -133,10 +122,7 @@ public class FinanceManagerWorkAreaJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(vallabel))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(36, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -148,14 +134,10 @@ public class FinanceManagerWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtBalance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(enterpriseLabel1)
-                        .addComponent(vallabel)))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enterpriseLabel1)
+                    .addComponent(vallabel))
+                .addGap(19, 19, 19)
                 .addComponent(jLabel6)
                 .addGap(50, 50, 50)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,11 +168,9 @@ public class FinanceManagerWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable moneyOrderJTable;
-    private javax.swing.JTextField txtBalance;
     private javax.swing.JLabel vallabel;
     // End of variables declaration//GEN-END:variables
 
@@ -222,7 +202,7 @@ public class FinanceManagerWorkAreaJPanel extends javax.swing.JPanel {
                 }
             }
         }
-        txtBalance.setText(String.valueOf(enterprise.getTotalProfit()));
+        
         
     }
 }

@@ -26,12 +26,12 @@ public class MedicineList {
         this.medicineList = menu;
     }
     public Medicine updateMenu(){
-        Medicine dish = new Medicine();
-        medicineList.add(dish);
-        return dish;
+        Medicine medicine = new Medicine();
+        medicineList.add(medicine);
+        return medicine;
     }
-    public void deleteDish(Medicine dish)
+    public void deleteMedicine(Medicine medicine)
     {
-        medicineList.remove(dish);
+        medicineList.remove(medicine);
     }
 }
