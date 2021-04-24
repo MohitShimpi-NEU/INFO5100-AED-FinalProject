@@ -50,11 +50,7 @@ public class ViewOrderPanel extends javax.swing.JPanel {
             row[3] = order.getDName();
             row[4] = order.getStatus();
             model.addRow(row);
-            
-            
-            
-            
-            
+   
         
         }
         

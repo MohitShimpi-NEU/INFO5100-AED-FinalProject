@@ -313,7 +313,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         
        Order  vs = (Order)orderinfotable.getValueAt(selectedrow,0);
             
-       vs.setStatus("Finished");
+       vs.setStatus("Order Delivered");
   
        JOptionPane.showMessageDialog(null, "Order Delivered successfully!","Success",JOptionPane.PLAIN_MESSAGE);
        populateYourOrderTable();
