@@ -60,7 +60,6 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        btnConfirm.setBackground(new java.awt.Color(255, 255, 255));
         btnConfirm.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnConfirm.setForeground(new java.awt.Color(0, 51, 102));
         btnConfirm.setText("Confirm");
@@ -113,11 +112,18 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
+<<<<<<< HEAD
         btnConfirm1.setBackground(new java.awt.Color(255, 255, 255));
         btnConfirm1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnConfirm1.setForeground(new java.awt.Color(0, 51, 102));
         btnConfirm1.setText("Delete");
         btnConfirm1.addActionListener(new java.awt.event.ActionListener() {
+=======
+        btnBack.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(0, 51, 102));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> main
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirm1ActionPerformed(evt);
             }
