@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import Business.DB4OUtil.DB4OUtil;
 import Business.Employee.EmployeeDirectory;
 import Business.UserAccount.UserAccount;
+import com.email.durgesh.Email;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -48,6 +51,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
         usernamelabel = new javax.swing.JLabel();
         custname = new javax.swing.JTextField();
         toplabel = new javax.swing.JLabel();
+        passlabel1 = new javax.swing.JLabel();
+        email_id = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -71,7 +76,12 @@ public class RegisterJPanel extends javax.swing.JPanel {
             }
         });
 
-        createnewuser.setBackground(new java.awt.Color(255, 255, 255));
+        passtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passtxtActionPerformed(evt);
+            }
+        });
+
         createnewuser.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         createnewuser.setForeground(new java.awt.Color(0, 51, 102));
         createnewuser.setText("Create");
@@ -94,29 +104,37 @@ public class RegisterJPanel extends javax.swing.JPanel {
         toplabel.setText("       New Customer Login");
         toplabel.setOpaque(true);
 
+        passlabel1.setBackground(new java.awt.Color(255, 255, 255));
+        passlabel1.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
+        passlabel1.setForeground(new java.awt.Color(0, 51, 102));
+        passlabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        passlabel1.setText("E-Mail:");
+        passlabel1.setOpaque(true);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(221, Short.MAX_VALUE)
+                .addContainerGap(129, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(toplabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(passlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(custlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(usernamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(usernametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(passtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(custname, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(221, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(custlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usernamelabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passlabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(email_id, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usernametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(custname, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(161, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(createnewuser)
+                .addComponent(createnewuser, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -132,16 +150,17 @@ public class RegisterJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usernamelabel)
                     .addComponent(usernametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(passlabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(passtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passlabel))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(passlabel1)
+                    .addComponent(email_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(createnewuser)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -169,12 +188,25 @@ public class RegisterJPanel extends javax.swing.JPanel {
             
             system.getUserAccountDirectory().createUserAccount(userName, password, inemployee, new CustomerRole());
             DB4OUtil.getInstance().storeSystem(system);
+            String recipient=email_id.getText();
+            
+                try {
+                    Email email=new Email("negismohit@gmail.com", "zobrist8657");
+                    email.setFrom("negismohit@gmail.com", "Medicare Delivery");
+                    email.setSubject("Welcome to Medicare");
+                    email.setContent("Hello, Thank you for registering","text/html");
+                    email.addRecipient(recipient);
+                    email.send();
+                    
+                } catch (Exception ex) {
+                    Logger.getLogger(RegisterJPanel.class.getName()).log(Level.SEVERE, null, ex);
+                } 
             JOptionPane.showMessageDialog(null, "Customer Register Successfully","Success",JOptionPane.PLAIN_MESSAGE);
             
             custname.setText("");
             usernametxt.setText("");
             passtxt.setText("");
-            
+            email_id.setText("");
         }  
         
         
@@ -184,12 +216,18 @@ public class RegisterJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernametxtActionPerformed
 
+    private void passtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passtxtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createnewuser;
     private javax.swing.JLabel custlabel;
     private javax.swing.JTextField custname;
+    private javax.swing.JTextField email_id;
     private javax.swing.JLabel passlabel;
+    private javax.swing.JLabel passlabel1;
     private javax.swing.JTextField passtxt;
     private javax.swing.JLabel toplabel;
     private javax.swing.JLabel usernamelabel;

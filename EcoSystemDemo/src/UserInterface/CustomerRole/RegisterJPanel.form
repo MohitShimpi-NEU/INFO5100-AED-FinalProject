@@ -22,28 +22,30 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="toplabel" alignment="1" min="-2" pref="306" max="-2" attributes="0"/>
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Component id="passlabel" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="custlabel" alignment="0" min="-2" pref="111" max="-2" attributes="0"/>
-                                  <Component id="usernamelabel" alignment="0" min="-2" pref="102" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="usernametxt" min="-2" pref="177" max="-2" attributes="0"/>
-                                  <Component id="passtxt" min="-2" pref="177" max="-2" attributes="0"/>
-                                  <Component id="custname" min="-2" pref="177" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+              <EmptySpace pref="129" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="toplabel" alignment="1" min="-2" pref="306" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="custlabel" min="-2" pref="132" max="-2" attributes="0"/>
+                          <Component id="usernamelabel" min="-2" pref="107" max="-2" attributes="0"/>
+                          <Component id="passlabel" min="-2" pref="91" max="-2" attributes="0"/>
+                          <Component id="passlabel1" min="-2" pref="63" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="email_id" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="usernametxt" min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="passtxt" min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="custname" min="-2" pref="177" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="createnewuser" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="161" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="createnewuser" min="-2" pref="97" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -63,19 +65,19 @@
                   <Component id="usernamelabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="usernametxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Component id="passlabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="passtxt" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="passtxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="passlabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="passlabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="email_id" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="createnewuser" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -119,12 +121,12 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="passtxt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passtxtActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="createnewuser">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="14" style="0"/>
         </Property>
@@ -169,6 +171,24 @@
         <Property name="text" type="java.lang.String" value="       New Customer Login"/>
         <Property name="opaque" type="boolean" value="true"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="passlabel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="STSong" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="33" red="0" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="E-Mail:"/>
+        <Property name="opaque" type="boolean" value="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="email_id">
     </Component>
   </SubComponents>
 </Form>
