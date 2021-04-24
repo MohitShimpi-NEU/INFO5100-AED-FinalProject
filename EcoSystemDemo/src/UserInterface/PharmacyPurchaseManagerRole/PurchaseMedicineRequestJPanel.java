@@ -107,7 +107,7 @@ public class PurchaseMedicineRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                     .addComponent(txtMoney))
@@ -142,14 +142,15 @@ public class PurchaseMedicineRequestJPanel extends javax.swing.JPanel {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-        if(txtName.getText().equals("")|| txtMoney.getText().equals("")){
-                 JOptionPane.showMessageDialog(null, "one or more fields are empty.");
+        if(txtName.getText().isEmpty()|| txtMoney.getText().isEmpty()){
+                 JOptionPane.showMessageDialog(null, "Fields empty!","Warning",JOptionPane.WARNING_MESSAGE);
                  return;
             }
+        String v= txtMoney.getText();
         try {
-            Integer.parseInt(txtMoney.getText());
+            Integer.parseInt(v);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Money should be an Integer number!");
+            JOptionPane.showMessageDialog(null, "Money should be an Integer number!","Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
             
@@ -160,7 +161,7 @@ public class PurchaseMedicineRequestJPanel extends javax.swing.JPanel {
                 
                 
     		DB4OUtil.getInstance().storeSystem(business);
-                JOptionPane.showMessageDialog(null, "Request has been submitted Successfully");
+                JOptionPane.showMessageDialog(null, "Purchase request successfully","Success",JOptionPane.PLAIN_MESSAGE);
         txtName.setText("");
         txtMoney.setText("");
     }//GEN-LAST:event_confirmActionPerformed

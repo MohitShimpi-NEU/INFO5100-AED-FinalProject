@@ -74,7 +74,7 @@ public class RequestFinancialPartnerMoneyJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        txtAmount = new javax.swing.JTextField();
+        mattx = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         back = new javax.swing.JButton();
 
@@ -113,10 +113,10 @@ public class RequestFinancialPartnerMoneyJPanel extends javax.swing.JPanel {
         txtName.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
         txtName.setEnabled(false);
 
-        txtAmount.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
-        txtAmount.addActionListener(new java.awt.event.ActionListener() {
+        mattx.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
+        mattx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAmountActionPerformed(evt);
+                mattxActionPerformed(evt);
             }
         });
 
@@ -153,7 +153,7 @@ public class RequestFinancialPartnerMoneyJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPrice)
                             .addComponent(txtName)
-                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(mattx, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -179,16 +179,16 @@ public class RequestFinancialPartnerMoneyJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mattx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(confirm)
                 .addContainerGap(88, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
+    private void mattxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mattxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAmountActionPerformed
+    }//GEN-LAST:event_mattxActionPerformed
 
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
@@ -196,33 +196,33 @@ public class RequestFinancialPartnerMoneyJPanel extends javax.swing.JPanel {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-        if(txtAmount.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "Money request text field empty","Warning",JOptionPane.WARNING_MESSAGE);
+        if(mattx.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Money request text field empty!","Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
-        else if(Float.parseFloat(txtAmount.getText())<0){
-            JOptionPane.showMessageDialog(null, "Money request text field incorrect","Warning",JOptionPane.WARNING_MESSAGE);
+        else if(Float.parseFloat(mattx.getText())<0){
+            JOptionPane.showMessageDialog(null, "Money request text field incorrect!","Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        float money = Float.parseFloat(txtAmount.getText());
-        if(money < enterprise.getTotalProfit()){
+        float x = enterprise.getTotalProfit();
+        float money = Float.parseFloat(mattx.getText());
+        if(money < x*2 ){
                   MoneyOrder moneyOrder = moneyOrderDirectory.createMoneyOrder();
                 moneyOrder.setTotalProfit(enterprise.getTotalProfit());
-                moneyOrder.setMoney(Float.parseFloat(txtAmount.getText()));
+                moneyOrder.setMoney(Float.parseFloat(mattx.getText()));
                 moneyOrder.setMoneyOrderStatus("Processing");
                 moneyOrder.setName(enterprise.getName());
 
     		
-                JOptionPane.showMessageDialog(null, "Request has been submitted Successfully","Success",JOptionPane.PLAIN_MESSAGE);}
+                JOptionPane.showMessageDialog(null, "Money request submitted successfully","Success",JOptionPane.PLAIN_MESSAGE);}
         
         else{
                 
-                JOptionPane.showMessageDialog(null, "Total profit is not enough!","Warning",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Can't request money!","Warning",JOptionPane.WARNING_MESSAGE);
                  return;
                 
             }
-         txtAmount.setText("");
+         mattx.setText("");
         DB4OUtil.getInstance().storeSystem(system);
     }//GEN-LAST:event_confirmActionPerformed
 
@@ -247,7 +247,7 @@ public class RequestFinancialPartnerMoneyJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField txtAmount;
+    private javax.swing.JTextField mattx;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
