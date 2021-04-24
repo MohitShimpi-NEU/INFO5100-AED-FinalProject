@@ -93,7 +93,6 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        refresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -206,16 +205,6 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3.setText("Pharmacy Manager");
         jLabel3.setOpaque(true);
 
-        refresh.setBackground(new java.awt.Color(255, 255, 255));
-        refresh.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        refresh.setForeground(new java.awt.Color(0, 51, 102));
-        refresh.setText("Refresh");
-        refresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -239,9 +228,7 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(40, 40, 40)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnModifyMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(btnModifyMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -275,11 +262,7 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(refresh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnModifyMenu)
-                        .addGap(43, 43, 43)))
+                    .addComponent(btnModifyMenu))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -288,46 +271,39 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedrow = menuJTable.getSelectedRow();
 
-        if (selectedrow <0) {
-             JOptionPane.showMessageDialog(null, "Please select any row!","Warning",JOptionPane.WARNING_MESSAGE);
-             return;
-        } 
-       
-        Medicine d = (Medicine) menuJTable.getValueAt(selectedrow, 0);
+        if (selectedrow >= 0) {
+            Medicine d = (Medicine) menuJTable.getValueAt(selectedrow, 0);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("RequestModifyListJPanel", new RequestModifyListJPanel(userProcessContainer, userAccount, enterprise, d, business));
+            userProcessContainer.add("RequestModifyMenuJPanel", new RequestModifyListJPanel(userProcessContainer, userAccount, enterprise, d, business));
             layout.next(userProcessContainer);
+        } else
+        JOptionPane.showMessageDialog(null, "Please select any row");
         
     }//GEN-LAST:event_btnModifyMenuActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        AddMedicinesJPanel addMedicinesJPanel = new AddMedicinesJPanel(userProcessContainer,enterprise.getMenu(),business,enterprise);
-        userProcessContainer.add("AddMedicinesJPanel", addMedicinesJPanel);
+        AddMedicinesJPanel ad = new AddMedicinesJPanel(userProcessContainer,enterprise.getMenu(),business,enterprise);
+        userProcessContainer.add("AddDishJPanel", ad);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-      
+        //populateTable1();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedrow = menuJTable.getSelectedRow();
 
-        if (selectedrow< 0) {
-           JOptionPane.showMessageDialog(null, "Please select any row!","Warning",JOptionPane.WARNING_MESSAGE);
-   return;
-        } 
-          Medicine d = (Medicine) menuJTable.getValueAt(selectedrow, 0);
-            enterprise.getMenu().deleteMedicine(d);
+        if (selectedrow >= 0) {
+            Medicine d = (Medicine) menuJTable.getValueAt(selectedrow, 0);
+            enterprise.getMenu().deleteDish(d);
             DB4OUtil.getInstance().storeSystem(business);
-            JOptionPane.showMessageDialog(null, "Medicine deleted successfully","Success",JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Organization has been deleted");
             populateMenuTable();
+        } else
+        JOptionPane.showMessageDialog(null, "Please select any row");
+    
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        // TODO add your handling code here:
-        populatemodifyMenuJTable();
-    }//GEN-LAST:event_refreshActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -342,7 +318,6 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable menuJTable;
     private javax.swing.JTable modifyMenuJTable;
-    private javax.swing.JButton refresh;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables
 }
