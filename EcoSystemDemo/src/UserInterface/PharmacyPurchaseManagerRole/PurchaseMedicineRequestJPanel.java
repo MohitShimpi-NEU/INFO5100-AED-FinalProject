@@ -144,14 +144,14 @@ public class PurchaseMedicineRequestJPanel extends javax.swing.JPanel {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-        if(txtName.getText().equals("")|| txtMoney.getText().equals("")){
-                 JOptionPane.showMessageDialog(null, "one or more fields are empty.");
+        if(txtName.getText().isEmpty()|| txtMoney.getText().isEmpty()){
+                 JOptionPane.showMessageDialog(null, "Field Empty!","Warning",JOptionPane.WARNING_MESSAGE);
                  return;
             }
         try {
             Integer.parseInt(txtMoney.getText());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Money should be an Integer number!");
+            JOptionPane.showMessageDialog(null, "Money should be an Integer number!","Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
             
@@ -162,7 +162,7 @@ public class PurchaseMedicineRequestJPanel extends javax.swing.JPanel {
                 
                 
     		DB4OUtil.getInstance().storeSystem(business);
-                JOptionPane.showMessageDialog(null, "Request has been submitted Successfully");
+                JOptionPane.showMessageDialog(null, "Request has been submitted Successfully","Success",JOptionPane.PLAIN_MESSAGE);
         txtName.setText("");
         txtMoney.setText("");
     }//GEN-LAST:event_confirmActionPerformed

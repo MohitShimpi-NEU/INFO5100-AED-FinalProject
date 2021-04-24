@@ -207,8 +207,9 @@ public class RequestFinancialPartnerMoneyJPanel extends javax.swing.JPanel {
             return;
         }
         
+        float xx= enterprise.getTotalProfit();
         float money = Float.parseFloat(txtAmount.getText());
-        if(money < enterprise.getTotalProfit()){
+        if(money < xx*2){
                   MoneyOrder moneyOrder = moneyOrderDirectory.createMoneyOrder();
                 moneyOrder.setTotalProfit(enterprise.getTotalProfit());
                 moneyOrder.setMoney(Float.parseFloat(txtAmount.getText()));
@@ -220,7 +221,7 @@ public class RequestFinancialPartnerMoneyJPanel extends javax.swing.JPanel {
         
         else{
                 
-                JOptionPane.showMessageDialog(null, "Total profit is not enough!","Warning",JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Can request money upto twice of profit!","Warning",JOptionPane.WARNING_MESSAGE);
                  return;
                 
             }

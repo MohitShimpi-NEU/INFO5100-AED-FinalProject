@@ -165,7 +165,7 @@ public class PharmacyPurchaseManagerWorkAreaJPanel extends javax.swing.JPanel {
     private void btnPurchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPurchaseActionPerformed
         // TODO add your handling code here:
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        userProcessContainer.add("RequestPurchaseJPanel", new PurchaseMedicineRequestJPanel(userProcessContainer, userAccount, enterprise, business));
+        userProcessContainer.add("PurchaseMedicineRequestJPanel", new PurchaseMedicineRequestJPanel(userProcessContainer, userAccount, enterprise, business));
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnPurchaseActionPerformed
 

@@ -57,7 +57,7 @@ public class PharmacyManagerWorkArea extends javax.swing.JPanel {
     void popmodifytab(){
         DefaultTableModel model = (DefaultTableModel) itemlisttable.getModel();
         model.setRowCount(0);
-        for (ModifyMedicinesRequest m : enterprise.getModifyDishesRequestDirectory().getModifyMenuRequestList()){
+        for (ModifyMedicinesRequest m : enterprise.getModifymedcineRequestDirectory().getModifyMenuRequestList()){
             if(m.getModifyStatus().equals("Processing")){
             Object[] row = new Object[5];
             row[0] = m.getMedicine().getMedicineName();
@@ -455,7 +455,7 @@ public class PharmacyManagerWorkArea extends javax.swing.JPanel {
         }
             PurchaseRequest  vs = (PurchaseRequest)purchasereq.getValueAt(selectedrow,2);
             
-            vs.setMedicineRequest("Declined By Pharmacy Manager");
+            vs.setMedicineRequest("Declined By Pharmacy Administrator");
             
             JOptionPane.showMessageDialog(null, "This purchase request has been declined","Success",JOptionPane.PLAIN_MESSAGE);
             poppurchasetab();

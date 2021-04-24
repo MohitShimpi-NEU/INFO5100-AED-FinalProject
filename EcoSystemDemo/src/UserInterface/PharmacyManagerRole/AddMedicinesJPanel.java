@@ -51,8 +51,8 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         txtName = new javax.swing.JTextField();
-        txtPrice = new javax.swing.JTextField();
-        btnComfirm = new javax.swing.JButton();
+        pricet = new javax.swing.JTextField();
+        add = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Back = new javax.swing.JButton();
@@ -68,16 +68,16 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtPrice.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
-        txtPrice.setForeground(new java.awt.Color(0, 0, 102));
+        pricet.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
+        pricet.setForeground(new java.awt.Color(0, 0, 102));
 
-        btnComfirm.setBackground(new java.awt.Color(255, 255, 255));
-        btnComfirm.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        btnComfirm.setForeground(new java.awt.Color(0, 51, 102));
-        btnComfirm.setText("Add");
-        btnComfirm.addActionListener(new java.awt.event.ActionListener() {
+        add.setBackground(new java.awt.Color(255, 255, 255));
+        add.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        add.setForeground(new java.awt.Color(0, 51, 102));
+        add.setText("Add");
+        add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComfirmActionPerformed(evt);
+                addActionPerformed(evt);
             }
         });
 
@@ -133,9 +133,9 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(20, 20, 20)
-                                .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(pricet, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnComfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(62, 62, 62)))))
                 .addContainerGap(167, Short.MAX_VALUE))
         );
@@ -155,9 +155,9 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel2))
-                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pricet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-                .addComponent(btnComfirm)
+                .addComponent(add)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -166,37 +166,35 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void btnComfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComfirmActionPerformed
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
-        boolean exist=false;
-        if(txtName.getText().equals("")|| txtPrice.getText().equals("")){
+        
+        if(txtName.getText().isEmpty()||pricet.getText().isEmpty()){
                  JOptionPane.showMessageDialog(null, "Fields empty!","Warning",JOptionPane.WARNING_MESSAGE);
                  return;
             }
         try {
-            Integer.parseInt(txtPrice.getText());
+            Integer.parseInt(pricet.getText());
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Price should be an integer number!","Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
         
-            for(Medicine dish:menu.getMedicineList()){
-                if(dish.getMedicineName().equals(txtName.getText())){
+            for(Medicine medicine:menu.getMedicineList()){
+                if(medicine.getMedicineName().equals(txtName.getText())){
                     JOptionPane.showMessageDialog(null, "Medicine already exist!","Warning",JOptionPane.WARNING_MESSAGE);
-                    exist=true;
-                    break;
+                    return;
                 }
             }
-            if(exist==false)
-                {
+            
                 Medicine dish = menu.updateMenu();
                 dish.setMedicineName(txtName.getText());
-                dish.setPrice(Float.parseFloat(txtPrice.getText()));
+                dish.setPrice(Float.parseFloat(pricet.getText()));
 
     		DB4OUtil.getInstance().storeSystem(business);
-                JOptionPane.showMessageDialog(null, "Request has been submitted successfully","Success",JOptionPane.PLAIN_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Medicine added successfully","Success",JOptionPane.PLAIN_MESSAGE);
                 txtName.setText("");
-                txtPrice.setText("");
+                pricet.setText("");
                 
                 userProcessContainer.remove(this);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -207,12 +205,12 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
                 ManagerWorkAreaJPanel panel = (ManagerWorkAreaJPanel) c;
                 panel.populateMenuTable();
             }
-        }
+        
                 
                 }
             
              DB4OUtil.getInstance().storeSystem(business);
-    }//GEN-LAST:event_btnComfirmActionPerformed
+    }//GEN-LAST:event_addActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
@@ -222,11 +220,11 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
-    private javax.swing.JButton btnComfirm;
+    private javax.swing.JButton add;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField pricet;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
 }

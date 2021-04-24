@@ -27,8 +27,8 @@ public class ModifyMedicinesRequestDirectory {
         this.modifyMenuRequestList = modifyMenuRequestList;
     }
     
-    public ModifyMedicinesRequest createModifyDishesRequest(Medicine dish){
-        ModifyMedicinesRequest modifyDishesRequest = new ModifyMedicinesRequest(dish);
+    public ModifyMedicinesRequest createModifyMedcineRequest(Medicine medicine){
+        ModifyMedicinesRequest modifyDishesRequest = new ModifyMedicinesRequest(medicine);
         modifyMenuRequestList.add(modifyDishesRequest);
         return modifyDishesRequest;
     }

@@ -29,20 +29,20 @@ public class RequestModifyListJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private Enterprise enterprise;
     private UserAccount userAccount;
-    private ModifyMedicinesRequestDirectory modifyDishesRequestDirectory;
+    private ModifyMedicinesRequestDirectory modifymedicineRequestDirectory;
     private EcoSystem business;
-    private Medicine dish;
+    private Medicine medcine;
     
-    public RequestModifyListJPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, Medicine dish,EcoSystem business) {
+    public RequestModifyListJPanel(JPanel userProcessContainer, UserAccount userAccount, Enterprise enterprise, Medicine medi,EcoSystem business) {
         initComponents();
-        
+         this.modifymedicineRequestDirectory = enterprise.getModifymedcineRequestDirectory();
+        this.business = business;
+        this.medcine = medi;
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
-        this.modifyDishesRequestDirectory = enterprise.getModifyDishesRequestDirectory();
-        this.business = business;
-        this.dish = dish;
-        medname.setText(dish.getMedicineName());
+       
+        medname.setText(medi.getMedicineName());
     }
 
     /**
@@ -160,23 +160,23 @@ public class RequestModifyListJPanel extends javax.swing.JPanel {
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
       
-         if(medname.getText().equals("")|| pricetxt.getText().equals("")){
-                 JOptionPane.showMessageDialog(null, "one or more fields are empty.");
+         if(medname.getText().isEmpty()||pricetxt.getText().isEmpty()){
+                 JOptionPane.showMessageDialog(null, "Fields empty","Warning",JOptionPane.WARNING_MESSAGE);
                  return;
             }
          try {
             Integer.parseInt(pricetxt.getText());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Price should be an Integer number!");
+            JOptionPane.showMessageDialog(null, "Price should be an Integer number!","Warning",JOptionPane.WARNING_MESSAGE);
             return;
         }
             
-                ModifyMedicinesRequest modifyDishesRequest = modifyDishesRequestDirectory.createModifyDishesRequest(dish);
-                modifyDishesRequest.setoPrice(dish.getPrice());
-                modifyDishesRequest.setFp(Float.parseFloat(pricetxt.getText()));
-                modifyDishesRequest.setModifyStatus("Processing");
+                ModifyMedicinesRequest modifymedicinesRequest = modifymedicineRequestDirectory.createModifyMedcineRequest(medcine);
+                modifymedicinesRequest.setoPrice(medcine.getPrice());
+                modifymedicinesRequest.setFp(Float.parseFloat(pricetxt.getText()));
+                modifymedicinesRequest.setModifyStatus("Processing");
     		DB4OUtil.getInstance().storeSystem(business);
-                JOptionPane.showMessageDialog(null, "Request has been submitted Successfully");
+                JOptionPane.showMessageDialog(null, "Request has been submitted sccessfully","Success",JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_confirmActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

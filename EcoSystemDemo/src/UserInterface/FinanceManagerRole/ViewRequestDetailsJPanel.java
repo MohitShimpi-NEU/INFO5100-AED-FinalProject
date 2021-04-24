@@ -33,7 +33,7 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         this.moneyorder = moneyOrder;
-        txtName.setText(moneyOrder.getName());
+        nametxt.setText(moneyOrder.getName());
         txtPrice.setText(String.valueOf(moneyOrder.getTotalProfit()));
         txtAmount.setText(String.valueOf(moneyOrder.getMoney()));
     }
@@ -53,7 +53,7 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
+        nametxt = new javax.swing.JTextField();
         txtAmount = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
@@ -91,9 +91,9 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
         jLabel3.setText("Money Request:");
         jLabel3.setOpaque(true);
 
-        txtName.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
-        txtName.setForeground(new java.awt.Color(0, 51, 102));
-        txtName.setEnabled(false);
+        nametxt.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
+        nametxt.setForeground(new java.awt.Color(0, 51, 102));
+        nametxt.setEnabled(false);
 
         txtAmount.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
         txtAmount.setForeground(new java.awt.Color(0, 51, 102));
@@ -139,7 +139,7 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPrice)
                             .addComponent(txtAmount)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -157,7 +157,7 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -176,7 +176,7 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
        
         moneyorder.setMoneyOrderStatus("Approved");
-        JOptionPane.showMessageDialog(null, "Money Request has been submitted successfully","Success",JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Money request accepted","Success",JOptionPane.PLAIN_MESSAGE);
         DB4OUtil.getInstance().storeSystem(system);
     }//GEN-LAST:event_btnConfirmActionPerformed
 
@@ -209,8 +209,8 @@ public class ViewRequestDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField nametxt;
     private javax.swing.JTextField txtAmount;
-    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
 

@@ -34,11 +34,11 @@ public class PharmacyEnterprice extends Enterprise{
         this.menu = menu;
     }
 
-    public ModifyMedicinesRequestDirectory getModifyDishesRequestDirectory() {
+    public ModifyMedicinesRequestDirectory getModifymedcineRequestDirectory() {
         return modifyDishesRequestDirectory;
     }
 
-    public void setModifyDishesRequestDirectory(ModifyMedicinesRequestDirectory modifyDishesRequestDirectory) {
+    public void setModifymedcineRequestDirectory(ModifyMedicinesRequestDirectory modifyDishesRequestDirectory) {
         this.modifyDishesRequestDirectory = modifyDishesRequestDirectory;
     }
 

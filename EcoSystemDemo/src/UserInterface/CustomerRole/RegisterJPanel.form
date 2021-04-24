@@ -22,17 +22,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="129" max="32767" attributes="0"/>
+              <EmptySpace pref="145" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="toplabel" alignment="1" min="-2" pref="306" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="custlabel" min="-2" pref="132" max="-2" attributes="0"/>
                           <Component id="usernamelabel" min="-2" pref="107" max="-2" attributes="0"/>
-                          <Component id="passlabel" min="-2" pref="91" max="-2" attributes="0"/>
-                          <Component id="passlabel1" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="passlabel1" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
+                          <Component id="passlabel" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                          <Component id="custlabel" min="-2" pref="124" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="email_id" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                           <Component id="usernametxt" min="-2" pref="177" max="-2" attributes="0"/>
@@ -41,9 +41,9 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="161" max="32767" attributes="0"/>
+              <EmptySpace pref="145" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="createnewuser" min="-2" pref="97" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -75,9 +75,9 @@
                   <Component id="passlabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="email_id" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="createnewuser" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

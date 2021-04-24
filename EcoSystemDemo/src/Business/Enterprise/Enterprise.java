@@ -25,7 +25,7 @@ public abstract class Enterprise extends Organization{
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
     private MedicineList menu;
-    ModifyMedicinesRequestDirectory modifyDishesRequestDirectory;
+    ModifyMedicinesRequestDirectory modifymedcineRequestDirectory;
     PurchaseRequestDirectory purchaseRequestDirectory;
     MoneyOrderDirectory moneyOrderDirectory;
     private float balance;
@@ -86,21 +86,14 @@ public abstract class Enterprise extends Organization{
         this.enterpriseType=type;
         organizationDirectory=new OrganizationDirectory();
         menu = new MedicineList();
-        modifyDishesRequestDirectory = new ModifyMedicinesRequestDirectory();
+        modifymedcineRequestDirectory = new ModifyMedicinesRequestDirectory();
         purchaseRequestDirectory = new PurchaseRequestDirectory();
         orderDirectory = new OrderDirectory();
         balance = 10000;
         moneyOrderDirectory = new MoneyOrderDirectory();
-        //cookOrganizationDirectory = new CookOrganizationDirectory();
     }
 
-//    public CookOrganizationDirectory getCookOrganizationDirectory() {
-//        return cookOrganizationDirectory;
-//    }
-//
-//    public void setCookOrganizationDirectory(CookOrganizationDirectory cookOrganizationDirectory) {
-//        this.cookOrganizationDirectory = cookOrganizationDirectory;
-//    }
+
 
     public OrderDirectory getOrderDirectory() {
         return orderDirectory;
@@ -111,12 +104,12 @@ public abstract class Enterprise extends Organization{
     }
 
     
-    public ModifyMedicinesRequestDirectory getModifyDishesRequestDirectory() {
-        return modifyDishesRequestDirectory;
+    public ModifyMedicinesRequestDirectory getModifymedcineRequestDirectory() {
+        return modifymedcineRequestDirectory;
     }
 
-    public void setModifyDishesRequestDirectory(ModifyMedicinesRequestDirectory modifyDishesRequestDirectory) {
-        this.modifyDishesRequestDirectory = modifyDishesRequestDirectory;
+    public void setModifymedcineRequestDirectory(ModifyMedicinesRequestDirectory modifymedcineRequestDirectory) {
+        this.modifymedcineRequestDirectory = modifymedcineRequestDirectory;
     }
 
     public PurchaseRequestDirectory getPurchaseRequestDirectory() {

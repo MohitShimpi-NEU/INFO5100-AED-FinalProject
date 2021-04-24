@@ -61,7 +61,7 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
     void populatemodifyMenuJTable(){
         DefaultTableModel model = (DefaultTableModel) modifyMenuJTable.getModel();
         model.setRowCount(0);
-        for (ModifyMedicinesRequest m : enterprise.getModifyDishesRequestDirectory().getModifyMenuRequestList()){
+        for (ModifyMedicinesRequest m : enterprise.getModifymedcineRequestDirectory().getModifyMenuRequestList()){
             Object[] row = new Object[5];
             row[0] = m.getMedicine().getMedicineName();
             row[1] = m.getoPrice();
@@ -271,38 +271,39 @@ public class ManagerWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedrow = menuJTable.getSelectedRow();
 
-        if (selectedrow >= 0) {
-            Medicine d = (Medicine) menuJTable.getValueAt(selectedrow, 0);
+        if (selectedrow <0) {
+            JOptionPane.showMessageDialog(null, "Please select any row","Warning",JOptionPane.WARNING_MESSAGE);
+        return;
+        } 
+        Medicine d = (Medicine) menuJTable.getValueAt(selectedrow, 0);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("RequestModifyMenuJPanel", new RequestModifyListJPanel(userProcessContainer, userAccount, enterprise, d, business));
+            userProcessContainer.add("RequestModifyListJPanel", new RequestModifyListJPanel(userProcessContainer, userAccount, enterprise, d, business));
             layout.next(userProcessContainer);
-        } else
-        JOptionPane.showMessageDialog(null, "Please select any row");
-        
     }//GEN-LAST:event_btnModifyMenuActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         AddMedicinesJPanel ad = new AddMedicinesJPanel(userProcessContainer,enterprise.getMenu(),business,enterprise);
-        userProcessContainer.add("AddDishJPanel", ad);
+        userProcessContainer.add("AddMedicinesJPanel", ad);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-        //populateTable1();
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         int selectedrow = menuJTable.getSelectedRow();
 
-        if (selectedrow >= 0) {
-            Medicine d = (Medicine) menuJTable.getValueAt(selectedrow, 0);
-            enterprise.getMenu().deleteDish(d);
-            DB4OUtil.getInstance().storeSystem(business);
-            JOptionPane.showMessageDialog(null, "Organization has been deleted");
-            populateMenuTable();
-        } else
-        JOptionPane.showMessageDialog(null, "Please select any row");
+        if (selectedrow<0) {
+             JOptionPane.showMessageDialog(null, "Please select any row!","Warning",JOptionPane.WARNING_MESSAGE);
     
+            return;
+        } 
+       Medicine d = (Medicine) menuJTable.getValueAt(selectedrow, 0);
+            enterprise.getMenu().deletemedicine(d);
+            DB4OUtil.getInstance().storeSystem(business);
+            JOptionPane.showMessageDialog(null, "Medicine deleted","Success",JOptionPane.PLAIN_MESSAGE);
+            populateMenuTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 
