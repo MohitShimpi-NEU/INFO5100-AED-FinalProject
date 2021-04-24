@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author negis,shimpim,rahul
  */
 public class DeliveryPartnerManageEmployeeJPanel extends javax.swing.JPanel {
-
+//
     /**
      * Creates new form DeliveryPartnerManageEmployeeJPanel
      */
