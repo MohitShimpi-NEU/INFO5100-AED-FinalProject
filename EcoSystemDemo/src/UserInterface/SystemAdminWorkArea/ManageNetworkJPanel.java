@@ -1,49 +1,49 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package UserInterface.SystemAdminWorkArea;
 
-import Business.EcoSystem;
+import Business.DB4OUtil.DB4OUtil;
 import Business.Network.Network;
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author raunak
+ * @author negis,shimpim,rahul
  */
 public class ManageNetworkJPanel extends javax.swing.JPanel {
-
     private JPanel userProcessContainer;
     private EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
     /**
-     *
      * Creates new form ManageNetworkJPanel
      */
     public ManageNetworkJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
-
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-
         populateNetworkTable();
     }
-
+    
     private void populateNetworkTable() {
-        DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();
-
+        DefaultTableModel model = (DefaultTableModel) NetworkJTabel.getModel();
         model.setRowCount(0);
         for (Network network : system.getNetworkList()) {
             Object[] row = new Object[1];
-            row[0] = network.getName();
+            row[0] = network;
             model.addRow(row);
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,21 +54,38 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        networkJTable = new javax.swing.JTable();
-        lblName = new javax.swing.JLabel();
-        btnSubmit = new javax.swing.JButton();
-        txtNetworkName = new javax.swing.JTextField();
-        btnBack = new javax.swing.JButton();
+        NetworkJTabel = new javax.swing.JTable();
+        AreaNAmeJLabel = new javax.swing.JLabel();
+        AddJButton = new javax.swing.JButton();
+        AreaNameJText = new javax.swing.JTextField();
+        DeleteJButton = new javax.swing.JButton();
+        wallpaper = new javax.swing.JLabel();
+        AreaNAmeJLabel1 = new javax.swing.JLabel();
 
-        networkJTable.setModel(new javax.swing.table.DefaultTableModel(
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
+
+        NetworkJTabel.setAutoCreateRowSorter(true);
+        NetworkJTabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        NetworkJTabel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        NetworkJTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
                 {null},
                 {null},
                 {null},
                 {null}
             },
             new String [] {
-                "Name"
+                "Area"
             }
         ) {
             Class[] types = new Class [] {
@@ -86,88 +103,124 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(networkJTable);
-        if (networkJTable.getColumnModel().getColumnCount() > 0) {
-            networkJTable.getColumnModel().getColumn(0).setResizable(false);
-        }
+        NetworkJTabel.setFocusTraversalPolicyProvider(true);
+        NetworkJTabel.setFocusable(false);
+        NetworkJTabel.setGridColor(new java.awt.Color(51, 51, 51));
+        NetworkJTabel.setInheritsPopupMenu(true);
+        jScrollPane1.setViewportView(NetworkJTabel);
 
-        lblName.setText("Name:");
+        add(jScrollPane1);
+        jScrollPane1.setBounds(530, 150, 480, 190);
 
-        btnSubmit.setText("Submit");
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+        AreaNAmeJLabel.setBackground(new java.awt.Color(255, 255, 255));
+        AreaNAmeJLabel.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
+        AreaNAmeJLabel.setForeground(new java.awt.Color(0, 51, 102));
+        AreaNAmeJLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AreaNAmeJLabel.setText("Area Name:");
+        AreaNAmeJLabel.setOpaque(true);
+        add(AreaNAmeJLabel);
+        AreaNAmeJLabel.setBounds(500, 80, 130, 40);
+
+        AddJButton.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        AddJButton.setForeground(new java.awt.Color(0, 51, 102));
+        AddJButton.setText("Add");
+        AddJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 102)));
+        AddJButton.setMaximumSize(new java.awt.Dimension(37, 19));
+        AddJButton.setMinimumSize(new java.awt.Dimension(37, 19));
+        AddJButton.setPreferredSize(new java.awt.Dimension(37, 19));
+        AddJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
+                AddJButtonActionPerformed(evt);
             }
         });
+        add(AddJButton);
+        AddJButton.setBounds(860, 90, 100, 30);
 
-        btnBack.setText("<< Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        AreaNameJText.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
+        AreaNameJText.setForeground(new java.awt.Color(0, 0, 102));
+        add(AreaNameJText);
+        AreaNameJText.setBounds(640, 90, 180, 30);
+
+        DeleteJButton.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        DeleteJButton.setForeground(new java.awt.Color(0, 51, 102));
+        DeleteJButton.setText("Delete");
+        DeleteJButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 153)));
+        DeleteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                DeleteJButtonActionPerformed(evt);
             }
         });
+        add(DeleteJButton);
+        DeleteJButton.setBounds(730, 360, 100, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(28, 28, 28)
-                            .addComponent(lblName)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtNetworkName, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSubmit))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(232, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnBack)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSubmit)
-                    .addComponent(txtNetworkName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblName))
-                .addContainerGap(258, Short.MAX_VALUE))
-        );
+        wallpaper.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/area1.gif"))); // NOI18N
+        wallpaper.setAutoscrolls(true);
+        wallpaper.setOpaque(true);
+        add(wallpaper);
+        wallpaper.setBounds(50, 90, 440, 320);
+
+        AreaNAmeJLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        AreaNAmeJLabel1.setFont(new java.awt.Font("STSong", 1, 24)); // NOI18N
+        AreaNAmeJLabel1.setForeground(new java.awt.Color(0, 51, 102));
+        AreaNAmeJLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AreaNAmeJLabel1.setText("Add Area ");
+        AreaNAmeJLabel1.setOpaque(true);
+        add(AreaNAmeJLabel1);
+        AreaNAmeJLabel1.setBounds(0, 30, 200, 40);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+    private void AddJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddJButtonActionPerformed
 
-        String name = txtNetworkName.getText();
-
+        String areaName = AreaNameJText.getText();
+        
+        if(areaName.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please enter area name!","Warning", JOptionPane.WARNING_MESSAGE); 
+            return;
+        }
+        
+        for(Network network : system.getNetworkList()){
+            if(network.getName().equals(areaName)){
+                JOptionPane.showMessageDialog(null, "Area already exist!","Warning", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+     
         Network network = system.createAndAddNetwork();
-        network.setName(name);
+        network.setName(areaName); 
+        JOptionPane.showMessageDialog(null, "Area added successfully!","Success", JOptionPane.PLAIN_MESSAGE);
+        populateNetworkTable();  
+        
+        dB4OUtil.storeSystem(system);
+        AreaNameJText.setText("");
+    }//GEN-LAST:event_AddJButtonActionPerformed
 
+    private void DeleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteJButtonActionPerformed
+        // TODO add your handling code here:
+        int selectRow = NetworkJTabel.getSelectedRow();
+
+        if(selectRow<0)
+        {
+            JOptionPane.showMessageDialog(null,"Please select any row","Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Network  network = (Network)NetworkJTabel.getValueAt(selectRow,0);   
+        system.getNetworkList().remove(network);
+        JOptionPane.showMessageDialog(null, "Area deleted successfully","Success", JOptionPane.PLAIN_MESSAGE);
         populateNetworkTable();
-    }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        userProcessContainer.remove(this);
-         Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        sysAdminwjp.populateTree();
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.previous(userProcessContainer);
-    }//GEN-LAST:event_btnBackActionPerformed
+        dB4OUtil.storeSystem(system);
+    }//GEN-LAST:event_DeleteJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton AddJButton;
+    private javax.swing.JLabel AreaNAmeJLabel;
+    private javax.swing.JLabel AreaNAmeJLabel1;
+    private javax.swing.JTextField AreaNameJText;
+    private javax.swing.JButton DeleteJButton;
+    private javax.swing.JTable NetworkJTabel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblName;
-    private javax.swing.JTable networkJTable;
-    private javax.swing.JTextField txtNetworkName;
+    private javax.swing.JLabel wallpaper;
     // End of variables declaration//GEN-END:variables
 }
