@@ -12,6 +12,7 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import UserInterface.CustomerRole.RegisterJPanel;
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -71,6 +72,11 @@ public class MainJFrame extends javax.swing.JFrame {
         login.setForeground(new java.awt.Color(0, 51, 102));
         login.setText("Login");
         login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 102)));
+        login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginMouseEntered(evt);
+            }
+        });
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginActionPerformed(evt);
@@ -307,6 +313,13 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordtxt.setEnabled(false);
         newuser.setEnabled(false);
     }//GEN-LAST:event_loginActionPerformed
+
+    private void loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseEntered
+        // TODO add your handling code here:
+        login.setOpaque(false);
+        login.setBackground(Color.CYAN);
+        
+    }//GEN-LAST:event_loginMouseEntered
 
     /**
      * @param args the command line arguments

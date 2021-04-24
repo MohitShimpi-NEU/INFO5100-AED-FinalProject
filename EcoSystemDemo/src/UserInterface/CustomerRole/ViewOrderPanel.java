@@ -103,10 +103,9 @@ public class ViewOrderPanel extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        backjButton1.setBackground(new java.awt.Color(255, 255, 255));
         backjButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         backjButton1.setForeground(new java.awt.Color(0, 51, 102));
-        backjButton1.setText("<< Back");
+        backjButton1.setText(" Back");
         backjButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backjButton1ActionPerformed(evt);

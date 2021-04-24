@@ -71,7 +71,6 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         txtPrice.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
         txtPrice.setForeground(new java.awt.Color(0, 0, 102));
 
-        btnComfirm.setBackground(new java.awt.Color(255, 255, 255));
         btnComfirm.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         btnComfirm.setForeground(new java.awt.Color(0, 51, 102));
         btnComfirm.setText("Add");
@@ -95,10 +94,9 @@ public class AddMedicinesJPanel extends javax.swing.JPanel {
         jLabel2.setText("Price:");
         jLabel2.setOpaque(true);
 
-        Back.setBackground(new java.awt.Color(255, 255, 255));
         Back.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         Back.setForeground(new java.awt.Color(0, 51, 102));
-        Back.setText("<< Back");
+        Back.setText("Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);

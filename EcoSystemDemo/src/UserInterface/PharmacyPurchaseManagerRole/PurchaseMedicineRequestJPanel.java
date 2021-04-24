@@ -80,7 +80,6 @@ public class PurchaseMedicineRequestJPanel extends javax.swing.JPanel {
         txtMoney.setFont(new java.awt.Font("STSong", 1, 14)); // NOI18N
         txtMoney.setForeground(new java.awt.Color(0, 51, 102));
 
-        confirm.setBackground(new java.awt.Color(255, 255, 255));
         confirm.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         confirm.setForeground(new java.awt.Color(0, 51, 102));
         confirm.setText("Confirm");
@@ -90,10 +89,9 @@ public class PurchaseMedicineRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        back.setBackground(new java.awt.Color(255, 255, 255));
         back.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         back.setForeground(new java.awt.Color(0, 51, 102));
-        back.setText("<< Back");
+        back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);

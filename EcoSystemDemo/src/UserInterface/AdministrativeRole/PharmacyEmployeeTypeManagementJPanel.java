@@ -113,7 +113,6 @@ public class PharmacyEmployeeTypeManagementJPanel extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 480, 92));
 
-        add.setBackground(new java.awt.Color(255, 255, 255));
         add.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         add.setForeground(new java.awt.Color(0, 51, 102));
         add.setText("Add Employee Type");
@@ -141,10 +140,9 @@ public class PharmacyEmployeeTypeManagementJPanel extends javax.swing.JPanel {
         jLabel1.setOpaque(true);
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, 140, 20));
 
-        back.setBackground(new java.awt.Color(255, 255, 255));
         back.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         back.setForeground(new java.awt.Color(0, 51, 102));
-        back.setText("<< Back");
+        back.setText(" Back");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
