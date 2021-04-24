@@ -107,10 +107,9 @@ public class PharmacyManageUserAccountJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        back.setBackground(new java.awt.Color(255, 255, 255));
         back.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         back.setForeground(new java.awt.Color(0, 51, 102));
-        back.setText("<< Back");
+        back.setText(" Back");
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
@@ -126,7 +125,6 @@ public class PharmacyManageUserAccountJPanel extends javax.swing.JPanel {
         jLabel5.setOpaque(true);
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 100, -1));
 
-        create.setBackground(new java.awt.Color(255, 255, 255));
         create.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         create.setForeground(new java.awt.Color(0, 51, 102));
         create.setText("Create");
